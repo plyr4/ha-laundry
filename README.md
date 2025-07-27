@@ -3,6 +3,8 @@
 ## Overview
 This setup tracks the usage of laundry machines using [home-assistant.io](https://www.home-assistant.io/) and [SonoffLAN](https://github.com/AlexxIT/SonoffLAN). It was built to save me a trip to the basement when the laundry machines are already occupied.
 
+I plan on extending it to support notifications for when laundry is done. With additional sensors we could also track when neighbors have forgotten to pull their clothes out of the dryer.
+
 ## Automations
 Automations set up sensors and binary states to feed data into the dashboard:
 - **Washer In Use:** Tracks when the washer starts running.
