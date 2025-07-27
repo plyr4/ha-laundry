@@ -1,0 +1,27 @@
+input_datetime:
+  last_laundry_detected:
+    name: Last Laundry Detected
+    has_date: true
+    has_time: true
+
+binary_sensor:
+  - platform: template
+    sensors:
+      washer_in_use:
+        friendly_name: "Washer In Use"
+        value_template: "{{ states('sensor.sonoff_100205e5f1_power')|float > 30 }}"
+        availability_template: "{{ not is_state('sensor.sonoff_100205e5f1_power', 'unavailable') }}"
+
+      dryer_in_use:
+        friendly_name: "Dryer In Use"
+        value_template: "{{ states('sensor.sonoff_1001f7f8f5_power')|float > 30 }}"
+        availability_template: "{{ not is_state('sensor.sonoff_1001f7f8f5_power', 'unavailable') }}"
+
+      laundry_available:
+        friendly_name: "Laundry Available"
+        value_template: >
+          {{ states('sensor.sonoff_100205e5f1_power')|float < 10 and
+             states('sensor.sonoff_1001f7f8f5_power')|float < 10 }}
+        availability_template: >
+          {{ not is_state('sensor.sonoff_100205e5f1_power', 'unavailable') and
+             not is_state('sensor.sonoff_1001f7f8f5_power', 'unavailable') }}

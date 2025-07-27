@@ -1,0 +1,51 @@
+title: Laundry
+views:
+  - title: Laundry
+    path: washer
+    cards:
+      - type: entities
+        title: Anything running?
+        entities:
+          - entity: binary_sensor.washer_in_use
+            name: Washer In Use
+          - entity: binary_sensor.dryer_in_use
+            name: Dryer In Use
+          - entity: binary_sensor.laundry_available
+            name: Laundry Available
+      - type: custom:apexcharts-card
+        graph_span: 24h
+        span:
+          start: day
+          offset: '-12h'
+        header:
+          show: true
+          title: Machine Power Usage
+        apex_config:
+          xaxis:
+            type: datetime
+            labels:
+              format: hh:mm
+          yaxis:
+            decimalsInFloat: 0
+          grid:
+            show: false
+          stroke:
+            width: 2
+          dataGrouping:
+            enabled: true
+            approximation: average
+        now:
+          show: true
+          color: var(--primary-color)
+          label: Now
+        series:
+          - entity: sensor.sonoff_1001f7f8f5_power
+            name: Dryer
+            group_by:
+              duration: 10min
+              func: avg
+          - entity: sensor.sonoff_100205e5f1_power
+            name: Washer
+            group_by:
+              duration: 10min
+              func: avg

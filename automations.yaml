@@ -1,0 +1,14 @@
+- alias: Update Last Laundry Detected
+  description: Update input_datetime when washer or dryer power above 30W
+  trigger:
+    - platform: numeric_state
+      entity_id:
+        - sensor.sonoff_100205e5f1_power
+        - sensor.sonoff_1001f7f8f5_power
+      above: 30
+  action:
+    - service: input_datetime.set_datetime
+      target:
+        entity_id: input_datetime.last_laundry_detected
+      data:
+        datetime: "{{ now().strftime('%Y-%m-%d %H:%M:%S') }}"
