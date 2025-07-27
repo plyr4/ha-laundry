@@ -13,7 +13,7 @@ Automations set up sensors and binary states to feed data into the dashboard:
 Sensors monitor power usage and machine activity. Template sensors provide statuses like "Washer In Use" and "Dryer In Use."
 
 ## Dashboard
-The dashboard uses the ApexCharts card to show
+The dashboard uses the [ApexCharts Card](https://github.com/RomRider/apexcharts-card) to show
 - **Power Trends:** Washer and dryer power consumption.
 - **Current Status:** Machine activity.
 
