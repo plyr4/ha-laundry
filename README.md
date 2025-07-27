@@ -1,6 +1,6 @@
-# Home Assistant Laundry Module
+# Home Assistant Laundry Dashboard
 
-This repository is a Home Assistant module designed to monitor and visualize laundry machine usage. Home Assistant is an open-source platform for home automation, allowing you to control and automate devices in your home. Learn more at [Home Assistant](https://www.home-assistant.io/).
+This is a Home Assistant setup for tracking and visualizing laundry machine usage. Learn more about Home Assistant at [home-assistant.io](https://www.home-assistant.io/).
 
 ## Automations
 Automations notify you when:
@@ -19,7 +19,7 @@ The dashboard uses the ApexCharts card to show:
 "Now" is centered on the graph, showing 24 hours of history on the left and future time on the right.
 
 ## Example
-![Dashboard Cards](img/cards.png)
+<img src="img/cards.png" alt="Dashboard Cards" width="600">
 
 ## Setup
 1. Install integrations:
